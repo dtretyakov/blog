@@ -1,0 +1,338 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Use Team Foundation Version Control in TeamCity · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.1.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../cloud-agents/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    TeamCity Tutorials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    TeamCity Version Controls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="use_team_foundation_version_control_in_teamcity.html">
+            
+                <a href="use_team_foundation_version_control_in_teamcity.html">
+            
+                    
+                    Use Team Foundation Version Control in TeamCity
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cloud-agents/">
+            
+                <a href="../cloud-agents/">
+            
+                    
+                    TeamCity Cloud Agents
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../cloud-agents/azure_cloud_agents_in_teamcity.html">
+            
+                <a href="../cloud-agents/azure_cloud_agents_in_teamcity.html">
+            
+                    
+                    Use Microsoft Azure cloud agents in TeamCity
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Use Team Foundation Version Control in TeamCity</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="use-team-foundation-server-in-teamcity">Use Team Foundation Server in TeamCity</h1>
+<p>TeamCity supports integration with TFS Version Control (TFVC) in java and .net modes as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>TFS</th>
+<th>Platforms</th>
+<th>Libraries</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java</td>
+<td>2010+</td>
+<td>Linux, Mac OS X, and Windows</td>
+<td>Bundled</td>
+</tr>
+<tr>
+<td>.Net</td>
+<td>2005+</td>
+<td>Windows</td>
+<td>Need to install</td>
+</tr>
+</tbody>
+</table>
+<p><em>Java mode</em> based on Team Explorer Everywhere bits and works out the box.</p>
+<p><em>.Net mode</em> based on libraries shipped with Team Explorer and Visual Studio.</p>
+<p>More information about TFS and Team Explorer compatibility can be found in the <a href="https://www.visualstudio.com/en-us/docs/setup-admin/requirements" target="_blank">TFS compatibility page</a>.</p>
+<p>By default TeamCity tries to use .Net mode and if it not available falls back to Java mode. If you want to force TeamCity to use specific mode just define <a href="https://confluence.jetbrains.com/display/TCDL/Configuring+TeamCity+Server+Startup+Properties" target="_blank">internal property</a> or <a href="https://confluence.jetbrains.com/display/TCDL/Defining+and+Using+Build+Parameters+in+Build+Configuration" target="_blank">build configuration parameter</a> <code>teamcity.tfs.mode</code> with a value <code>java</code> or <code>.net</code>.</p>
+<h2 id="create-a-new-teamcity-project-from-tfvc-repository">Create a new TeamCity project from TFVC repository</h2>
+<p>All that you need to do it is copy link to the TFS project and open in TeamCity administration page <code>Create New Project from URL</code>, fill in project URL, username/password fields and click <code>Proceed</code>. Then you need to configure build steps and add a build trigger.</p>
+<h2 id="teamcity-authentication-in-tfs">TeamCity authentication in TFS</h2>
+<p>TeamCity supports following authentication options in TFs:</p>
+<ul>
+<li>Username/password pair</li>
+<li>Windows user identity via NTLM/Kerberos, leave black username/password fields</li>
+</ul>
+<blockquote>
+<p>Note: you should properly configure Kerberos libraries in your Linux distribution by following <a href="https://msdn.microsoft.com/en-us/library/gg475929(v=vs.120" target="_blank">Team Explorer Everywhere guideline</a>.aspx#Anchor_3).</p>
+</blockquote>
+<h2 id="store-teamcity-project-configuration-settings-in-tfs">Store TeamCity project configuration settings in TFS</h2>
+<p>TeamCity provides great ability to store project configuration files in VCS. Learn more about <a href="https://confluence.jetbrains.com/display/TCDL/Storing+Project+Settings+in+Version+Control" target="_blank">how it works</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: TeamCity Version Controls">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../cloud-agents/" class="navigation navigation-next " aria-label="Next page: TeamCity Cloud Agents">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Use Team Foundation Version Control in TeamCity","level":"1.2.1","depth":2,"next":{"title":"TeamCity Cloud Agents","level":"1.3","depth":1,"path":"cloud-agents/README.md","ref":"cloud-agents/README.md","articles":[{"title":"Use Microsoft Azure cloud agents in TeamCity","level":"1.3.1","depth":2,"path":"cloud-agents/azure_cloud_agents_in_teamcity.md","ref":"cloud-agents/azure_cloud_agents_in_teamcity.md","articles":[]}]},"previous":{"title":"TeamCity Version Controls","level":"1.2","depth":1,"path":"version-control/README.md","ref":"version-control/README.md","articles":[{"title":"Use Team Foundation Version Control in TeamCity","level":"1.2.1","depth":2,"path":"version-control/use_team_foundation_version_control_in_teamcity.md","ref":"version-control/use_team_foundation_version_control_in_teamcity.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"version-control/use_team_foundation_version_control_in_teamcity.md","mtime":"2016-07-10T12:18:31.081Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-07-10T12:26:31.779Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
